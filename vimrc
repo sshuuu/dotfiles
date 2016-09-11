@@ -1,7 +1,3 @@
-if filereadable(expand("~/dotfile/vimrc"))
-  . vimrc
-end
-
 "#### 初期設定 ####
 set number            "行番号を表示
 set nocompatible      "vi互換の動作を無効化
