@@ -41,6 +41,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "#### キーバインド ####
+noremap k gk
+noremap j gj
 nnoremap ; :
 nnoremap <C-a> ^
 nnoremap <C-e> $
@@ -61,6 +63,7 @@ noremap <Right> <Nop>
 " ヘルプ非表示
 noremap <F1> <Nop>
 noremap! <F1> <Nop>
+nnoremap Q <Nop>
 
 call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
 call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
