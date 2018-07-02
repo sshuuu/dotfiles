@@ -52,8 +52,6 @@ nnoremap to :tabnew<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
 command Nt NERDTreeToggle
-" nnoremap <silent><C-e> :NERDTreeToggle<CR>          邪魔なのでコメントアウト
-" nnoremap <C-c> :Unite -auto-preview colorscheme<CR> 邪魔なのでコメントアウト
 
 " ノーオペレーション設定
 noremap <Up> <Nop>

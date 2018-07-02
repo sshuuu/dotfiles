@@ -35,8 +35,8 @@ function prompt() {
 prompt
 
 # git 補完機能ローディング
-. ~/.git-completion.bash
+# . ~/.git-completion.bash
 
 # rbenv使用するためのおまじない
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
