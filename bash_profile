@@ -1,4 +1,10 @@
 #######################################
+# スクリプト ロード
+#######################################
+. .git-completion.bash # git補完機能
+. .git-prompt.sh       # gitプロンプト
+
+#######################################
 # alias
 #######################################
 alias be='bundle exec'
@@ -6,37 +12,27 @@ alias be='bundle exec'
 #######################################
 # script
 #######################################
-
 function mkcd() { mkdir -p $1 && cd $1; }
 
-# 2 は標準エラー出力のファイルディスクリプタ。それを/dev/nullに捨てることで標準出力のみを表示
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
-}
-
-function active_gemset_name {
-  rbenv gemset active 2> /dev/null | cut -d' ' -f1 | sed -e 's/\(.*\)/ (\1)/'
-}
-
-function prompt() {
-  local DEFAULT='\[\e[m\]'
-  local BLUE='\[\e[1;34m\]'
-  local GREEN='\[\e[1;32m\]'
-  local RED='\[\e[1;31m\]'
-  local BASE="\u"
-  PS1="${GREEN}${BASE}${RED}\$(active_gemset_name)${BLUE}:\W\$${GREEN}\$(parse_git_branch)${DEFAULT} "
-}
-
 #######################################
-# main
+# gitプロンプト設定
 #######################################
+# プロンプトに各種情報を表示
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUPSTREAM=1
+GIT_PS1_SHOWUNTRACKEDFILES=
+GIT_PS1_SHOWSTASHSTATE=1
 
-# プロンプトカスタマイズ
-prompt
-
-# git 補完機能ローディング
-# . ~/.git-completion.bash
-
-# rbenv使用するためのおまじない
-# eval "$(rbenv init -)"
+############### ターミナルのコマンド受付状態の表示変更
+# \u ユーザ名
+# \h ホスト名
+# \W カレントディレクトリ
+# \w カレントディレクトリのパス
+# \n 改行
+# \d 日付
+# \[ 表示させない文字列の開始
+# \] 表示させない文字列の終了
+# \$ $
+export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
+##############
 
