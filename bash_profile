@@ -1,8 +1,12 @@
 #######################################
 # スクリプト ロード
 #######################################
-. .git-completion.bash # git補完機能
-. .git-prompt.sh       # gitプロンプト
+if [ -f ~/dotfiles/.git-completion.bash ]; then
+  . ~/dotfiles/.git-completion.bash # git補完機能
+fi
+if [ -f ~/dotfiles/.git-prompt.sh ]; then
+  . ~/dotfiles/.git-prompt.sh       # gitプロンプト
+fi
 
 #######################################
 # alias
