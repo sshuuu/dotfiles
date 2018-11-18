@@ -23,7 +23,8 @@ Plug 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
 " ウィンドウリサイズ（Ctrl+eで分割ウィンドウリサイズモード、Ctrl+Eでvimウィンドウ自体のリサイズモード）
-Plug 'simeji/winresizer'
+" Ctrl+eが$のエイリアスとかぶるのでコメントアウト
+" Plug 'simeji/winresizer'
 
 call plug#end()
 

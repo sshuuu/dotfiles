@@ -45,4 +45,4 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_p
 # 環境変数
 #######################################
 export GOPATH=$HOME/go
-
+export PATH=$PATH:$GOPATH/bin
