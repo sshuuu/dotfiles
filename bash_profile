@@ -5,6 +5,9 @@ if [ -f ~/dotfiles/.git-prompt.sh ]; then
   . ~/dotfiles/.git-prompt.sh       # gitプロンプト
 fi
 
+# カラー変数読み込み
+. ~/dotfiles/setcolor.sh
+
 #######################################
 # alias
 #######################################
@@ -26,6 +29,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=
 GIT_PS1_SHOWSTASHSTATE=1
 
 ############### ターミナルのコマンド受付状態の表示変更
+# \e エスケープ文字(または\033)
 # \u ユーザ名
 # \h ホスト名
 # \W カレントディレクトリ
@@ -35,7 +39,12 @@ GIT_PS1_SHOWSTASHSTATE=1
 # \[ 表示させない文字列の開始
 # \] 表示させない文字列の終了
 # \$ $
-export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1 2> /dev/null)\[\033[00m\] \$ '
+if [ -z $IS_AWS ]; then
+  export PS1=$font_green_blink'\u'$font_default':'$font_blue_blink'\w'$font_red_blink'$(__git_ps1 2> /dev/null)'$font_default' \$ '
+else
+  export PS1=$font_red'(AWS) '$font_yellow'\u'$font_default':'$font_cyan'\w'$font_magenta'$(__git_ps1 2> /dev/null)'$font_default' \$ '
+fi
+
 ##############
 
 #######################################
@@ -43,3 +52,4 @@ export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_p
 #######################################
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
