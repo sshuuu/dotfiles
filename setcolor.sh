@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 font_black="\[\e[0;30m\]"
 font_black_blink="\[\e[1;30m\]"
