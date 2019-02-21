@@ -6,7 +6,9 @@ if [ -f ~/dotfiles/.git-prompt.sh ]; then
 fi
 
 # カラー変数読み込み
-. ~/dotfiles/setcolor.sh
+if [ -f ~/dotfiles/setcolor.sh ]; then
+  . ~/dotfiles/setcolor.sh
+fi
 
 #######################################
 # alias
