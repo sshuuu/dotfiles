@@ -6,7 +6,7 @@ set nocompatible      "vi互換の動作を無効化
 set expandtab         "タブをスペース化
 set tabstop=2         "タブをスペース二つ分に
 set shiftwidth=2      "インデントをスペース二つ分に
-set autoindent        "オートインデント
+" set autoindent        "オートインデント
 
 """"""""""""""""""""""""""""""
 " プラグインのセットアップ
@@ -22,6 +22,8 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
+" yamlファイルのインデント調整
+Plug 'stephpy/vim-yaml'
 " ウィンドウリサイズ（Ctrl+eで分割ウィンドウリサイズモード、Ctrl+Eでvimウィンドウ自体のリサイズモード）
 " Ctrl+eが$のエイリアスとかぶるのでコメントアウト
 " Plug 'simeji/winresizer'
