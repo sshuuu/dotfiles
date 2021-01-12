@@ -19,11 +19,14 @@ Plug 'junegunn/seoul256.vim'
 " ファイルオープンを便利に
 Plug 'Shougo/unite.vim'
 " Unite.vimで最近使ったファイルを表示できるようにする
-Plug 'Shougo/neomru.vim'
+" function
+" nerdtree#ui_glue#invokeKeyMap[1]..のようなエラーが表示されるようになってしまったのでコメントアウト
+" Plug 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
 " yamlファイルのインデント調整
-Plug 'stephpy/vim-yaml'
+" 使いずらいのでコメントアウト
+" Plug 'stephpy/vim-yaml'
 " ウィンドウリサイズ（Ctrl+eで分割ウィンドウリサイズモード、Ctrl+Eでvimウィンドウ自体のリサイズモード）
 " Ctrl+eが$のエイリアスとかぶるのでコメントアウト
 " Plug 'simeji/winresizer'

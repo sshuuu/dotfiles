@@ -1,8 +1,0 @@
-if [ -f ~/dotfiles/bash_profile ]; then
-  . ~/dotfiles/bash_profile
-fi
-
-# read .bashrc if exist in home
-if [ -f ~/.bashrc ] ; then
-. ~/.bashrc
-fi
