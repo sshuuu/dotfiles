@@ -18,10 +18,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
 " ファイルオープンを便利に
 Plug 'Shougo/unite.vim'
-" Unite.vimで最近使ったファイルを表示できるようにする
-" function
-" nerdtree#ui_glue#invokeKeyMap[1]..のようなエラーが表示されるようになってしまったのでコメントアウト
-" Plug 'Shougo/neomru.vim'
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
 " yamlファイルのインデント調整
