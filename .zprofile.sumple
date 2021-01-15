@@ -1,4 +1,0 @@
-if [ -f ~/dotfiles/zprofile ]; then
-  . ~/dotfiles/zprofile
-fi
-

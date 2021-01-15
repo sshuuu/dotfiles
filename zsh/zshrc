@@ -1,0 +1,74 @@
+#######################################
+# 環境変数定義
+#######################################
+# for zsh
+export ZPLUG_HOME=${ZDOTDIR:-$HOME}
+
+# for nodebrew
+export PATH="$PATH:$HOME/.nodebrew/current/bin:$PATH" # Add NodeBrew to PATH for scripting
+# for homebrew
+export PATH="/usr/local/sbin:$PATH"
+# to enable adb command
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+
+#######################################
+# zplug設定
+#######################################
+autoload -Uz compinit && compinit
+
+# zplugが無ければgitからclone
+if [[ ! -d $ZPLUG_HOME/.zplug ]];then
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME/.zplug
+fi
+
+# zplugを使う
+source $ZPLUG_HOME/.zplug/init.zsh
+
+# 自分自身をプラグインとして管理
+zplug "zplug/zplug", hook-build:'zplug --self-manage'
+
+# ここに使いたいプラグインを書いておく
+# zplug "ユーザー名/リポジトリ名", タグ
+zplug "zsh-users/zsh-completions"
+zplug "mafredri/zsh-async"
+zplug "peterhurford/git-aliases.zsh"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-history-substring-search", defer:3
+
+# インストールしてないプラグインはインストール
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# コマンドをリンクして、PATH に追加し、プラグインは読み込む
+zplug load –verbose
+
+#######################################
+# pure設定
+#######################################
+# zpreztoが無ければgitからclone
+if [[ ! -d $ZPLUG_HOME/pure ]]; then
+  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+fi
+fpath+=$ZPLUG_HOME/pure
+autoload -U promptinit; promptinit
+prompt pure
+
+PURE_PROMPT_SYMBOL='%F{white}❯%f%F{yellow}❯%f%F{green}❯%f'
+zstyle :prompt:pure:path color 'cyan'
+
+#######################################
+# その他の設定
+#######################################
+# direnv
+eval "$(direnv hook zsh)"
+
+# to enable pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+

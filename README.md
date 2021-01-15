@@ -1,49 +1,16 @@
 # dotfiles
 
-参照
-https://qiita.com/kinchiki/items/57e9391128d07819c321
-
+## zsh
+zshの設定ファイル用ディレクトリを変更するために、`/etc/zprofile`に下記を追記してください。
+```bash
+export ZDOTDIR=$HOME/.zsh
 ```
-# preztoインストール
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+#### 参照
+- [zshの設定ファイルの読み込み順序と使い方Tipsまとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
 
-$ setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
-```
+### prezto
+~/.zpreztorcを編集して設定してください。
 
-~/.zpreztorcの編集
-zstyle ':prezto:module:prompt' theme 'sorin' の theme の箇所を pure にします。
-
-```
-#
-# Prompt
-#
-
-# Set the prompt theme to load.
-# Setting it to 'random' loads a random theme.
-# Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'pure'
-```
-
-ついでに補完とシンタックスハイライトのモジュールも有効にしておきましょう。設定場所はファイルの最初の方にあります。
-'syntax-highlighting' \ と 'autosuggestions' \ を 'prompt' \ の上に記載するだけです。なにかの理由で prompt の上に書かないといけなかった記憶があります（気のせいかも）。
-
-```
-# Set the Prezto modules to load (browse modules).
-# The order matters.
-zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
-  'syntax-highlighting' \
-  'autosuggestions' \
-  'prompt' \
-```
-
+#### 参照
+- [pureの設定](https://github.com/sindresorhus/pure)
+- [お前らのターミナルはダサい](https://qiita.com/kinchiki/items/57e9391128d07819c321)
