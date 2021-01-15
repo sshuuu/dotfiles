@@ -1,20 +1,4 @@
 ###############################################
-# init
-###############################################
-
-###############################################
-# alias
-###############################################
-alias ll="ls -alFh"
-alias mysql="mysql --pager='less -S -n -i -F -X' -u root"
-alias s="export ENV=staging;export RAILS_ENV=staging"
-alias in_rails='docker exec -it server_rails-flag_1 env COLUMNS=`tput cols` LINES=`tput lines` bash'
-alias aws_f='aws --profile 611336460133/OneLogin-admin/shuya.sato@aktsk.jp'
-alias elasticache_list='aws_f elasticache describe-cache-clusters | jq -rc ".CacheClusters[] | [.Engine, .CacheNodeType]" | sort | uniq -c'
-alias rds_list='aws_f rds describe-db-instances | jq -rc ".DBInstances[] | [.Engine, .DBInstanceClass , {MultiAZ: .MultiAZ}]" | sort | uniq -c'
-alias ec2_list='aws_f ec2 describe-instances | jq -rc ".Reservations[].Instances[].InstanceType" | sort | uniq -c'
-
-###############################################
 # library init
 ###############################################
 
@@ -23,17 +7,3 @@ eval "$(rbenv init -)"
 
 # direnv init
 eval "$(direnv hook bash)"
-
-###############################################
-# goetia
-###############################################
-
-# alias image_bot="docker run --rm -v $HOME/projects/goetia/game_server_for_bot:/game_server_for_bot -v $HOME/.ssh:/root/.ssh -v /Volume:/Volume ssato/slack_bot"
-# alias goetia_client="docker run --rm -it -v $HOME/.ssh:/root/.ssh -v $HOME/.gitconfig:/root/.gitconfig -v $HOME/projects/goetia/game_client:/app ssato/goetia_client bash"
-
-# ゴエティアrailsコンソール起動
-# alias railsc="cd ~/projects/goetia/game_server;docker-compose run -eCOLUMNS=$(tput cols) -eLINES=$(tput lines) rails rails c"
-
-# ゴエティアゲームサーバ起動（sync利用）
-# alias game="cd ~/projects/goetia/game_server;docker-compose -f docker-compose.yml -f docker-compose-dev.yml up" # docker-sync-stack start と同義
-
