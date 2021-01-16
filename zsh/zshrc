@@ -48,3 +48,13 @@ zplug load
 #######################################
 PURE_PROMPT_SYMBOL='%F{white}❯%f%F{yellow}❯%f%F{green}❯%f'
 zstyle :prompt:pure:path color 'cyan'
+
+#######################################
+# alias設定
+#######################################
+alias ll='ls -alF'
+alias be='bundle exec'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+
