@@ -20,9 +20,6 @@ Plug 'junegunn/seoul256.vim'
 Plug 'Shougo/unite.vim'
 " ファイルをtree表示してくれる
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle'] }
-" yamlファイルのインデント調整
-" 使いずらいのでコメントアウト
-" Plug 'stephpy/vim-yaml'
 " ウィンドウリサイズ（Ctrl+eで分割ウィンドウリサイズモード、Ctrl+Eでvimウィンドウ自体のリサイズモード）
 " Ctrl+eが$のエイリアスとかぶるのでコメントアウト
 " Plug 'simeji/winresizer'

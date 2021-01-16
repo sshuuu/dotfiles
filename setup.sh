@@ -16,7 +16,7 @@ fi
 ############################################
 # vim
 ############################################
-ln -sf ~/dotfiles/vimrc        $HOME/.vimrc
+ln -sf ~/dotfiles/vimrc $HOME/.vimrc
 if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
