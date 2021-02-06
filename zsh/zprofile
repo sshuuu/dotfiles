@@ -3,7 +3,14 @@
 ###############################################
 
 # rbenv init
-eval "$(rbenv init -)"
+if type rbenv > /dev/null 2>&1; then
+  echo "setting up rbenv"
+  eval "$(rbenv init -)"
+fi
 
 # direnv init
-eval "$(direnv hook bash)"
+if type direnv > /dev/null 2>&1; then
+  echo "setting up direnv"
+  eval "$(direnv hook bash)"
+fi
+
