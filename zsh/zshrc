@@ -46,8 +46,22 @@ zplug load
 #######################################
 # pure設定
 #######################################
-PURE_PROMPT_SYMBOL='%F{white}❯%f%F{yellow}❯%f%F{green}❯%f'
-zstyle :prompt:pure:path color 'cyan'
+case $((RANDOM % 3)) in
+  0 )
+    prompt='%F{#008000}❯%f%F{#3cb371}❯%f%F{#98fb98}❯%f '
+    path_color='#3cb371'
+    ;;
+  1 )
+    prompt='%F{#1e90ff}❯%f%F{#87cefa}❯%f%F{#e0ffff}❯%f '
+    path_color='cyan'
+    ;;
+  2 )
+    prompt='%F{#696969}❯%f%F{#a9a9a9}❯%f%F{#dcdcdc}❯%f '
+    path_color='#909090'
+    ;;
+esac
+PURE_PROMPT_SYMBOL=$prompt
+zstyle :prompt:pure:path color $path_color
 
 #######################################
 # alias設定
