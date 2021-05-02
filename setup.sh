@@ -1,7 +1,10 @@
 #!/bin/zsh
-if [ -n "$ZDOTDIR" ]; then
-    mkdir -p $ZDOTDIR 2>/dev/null
+if [ -z "$ZDOTDIR" ]; then
+  echo "you need to define ZDOTDIR environment variable"
+  return 1
 fi
+
+mkdir -p $ZDOTDIR 2>/dev/null
 
 ############################################
 # zprofile, zshrc
@@ -21,3 +24,4 @@ if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
