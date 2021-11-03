@@ -11,6 +11,6 @@ fi
 # direnv init
 if type direnv > /dev/null 2>&1; then
   echo "setting up direnv"
-  eval "$(direnv hook bash)"
+  eval "$(direnv hook zsh)"
 fi
 
