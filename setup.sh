@@ -1,19 +1,24 @@
 #!/bin/zsh
-if [ -z "$ZDOTDIR" ]; then
-  echo "you need to define ZDOTDIR environment variable"
-  return 1
-fi
 
+ZDOTDIR=$HOME/.zsh
 mkdir -p $ZDOTDIR 2>/dev/null
+
+############################################
+# zshenv
+############################################
+if [ ! -e $HOME/.zshenv ]; then
+    echo "export ZDOTDIR=$HOME/.zsh" > $HOME/.zshenv
+fi
+source $HOME/.zshenv
 
 ############################################
 # zprofile, zshrc
 ############################################
-if [ ! -e ${ZDOTDIR:-$HOME}/.zprofile ]; then
-    echo "source $HOME/dotfiles/zsh/zprofile" > ${ZDOTDIR:-$HOME}/.zprofile
+if [ ! -e ${ZDOTDIR}/.zprofile ]; then
+    echo "source $HOME/dotfiles/zsh/zprofile" > ${ZDOTDIR}/.zprofile
 fi
-if [ ! -e ${ZDOTDIR:-$HOME}/.zshrc ]; then
-    echo "source $HOME/dotfiles/zsh/zshrc" > ${ZDOTDIR:-$HOME}/.zshrc
+if [ ! -e ${ZDOTDIR}/.zshrc ]; then
+    echo "source $HOME/dotfiles/zsh/zshrc" > ${ZDOTDIR}/.zshrc
 fi
 
 ############################################
