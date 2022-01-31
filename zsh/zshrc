@@ -1,11 +1,16 @@
+if [ -z "$ZDOTDIR" ]; then
+  echo "you need to define ZDOTDIR environment variable"
+  return 1
+fi
+
 #######################################
 # 環境変数定義
 #######################################
-# for zsh
-export ZPLUG_HOME=${ZDOTDIR:-$HOME}
+# for zplug
+export ZPLUG_HOME=$ZDOTDIR
 
 # for nodebrew
-export PATH="$PATH:$HOME/.nodebrew/current/bin:$PATH" # Add NodeBrew to PATH for scripting
+export PATH="$PATH:$HOME/.nodebrew/current/bin:$PATH"
 # for homebrew
 export PATH="/usr/local/sbin:$PATH"
 

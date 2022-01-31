@@ -7,18 +7,18 @@ mkdir -p $ZDOTDIR 2>/dev/null
 # zshenv
 ############################################
 if [ ! -e $HOME/.zshenv ]; then
-    echo "export ZDOTDIR=$HOME/.zsh" > $HOME/.zshenv
+    echo "export ZDOTDIR=$ZDOTDIR" > $HOME/.zshenv
 fi
 source $HOME/.zshenv
 
 ############################################
 # zprofile, zshrc
 ############################################
-if [ ! -e ${ZDOTDIR}/.zprofile ]; then
-    echo "source $HOME/dotfiles/zsh/zprofile" > ${ZDOTDIR}/.zprofile
+if [ ! -e $ZDOTDIR/.zprofile ]; then
+    echo "source $HOME/dotfiles/zsh/zprofile" > $ZDOTDIR/.zprofile
 fi
-if [ ! -e ${ZDOTDIR}/.zshrc ]; then
-    echo "source $HOME/dotfiles/zsh/zshrc" > ${ZDOTDIR}/.zshrc
+if [ ! -e $ZDOTDIR/.zshrc ]; then
+    echo "source $HOME/dotfiles/zsh/zshrc" > $ZDOTDIR/.zshrc
 fi
 
 ############################################
