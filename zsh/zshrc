@@ -10,6 +10,8 @@ fi
 export ZPLUG_HOME=$ZDOTDIR
 
 # for nodebrew
+# 下記コマンドの実行必要あり
+# nodebrew setup
 export PATH="$PATH:$HOME/.nodebrew/current/bin:$PATH"
 # for homebrew
 export PATH="/usr/local/sbin:$PATH"
