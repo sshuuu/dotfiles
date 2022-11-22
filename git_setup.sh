@@ -1,3 +1,12 @@
+##################################
+# ユーザー情報設定
+##################################
+git config --global user.name "sshuuu"
+git config --global user.email "sshuuu.ne@gmail.com"
+
+##################################
+# alias設定
+##################################
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.cob "checkout -b"
