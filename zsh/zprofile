@@ -2,10 +2,16 @@
 # library init
 ###############################################
 
-# Set PATH, MANPATH, etc., for Homebrew.
+# Set PATH, MANPATH, etc., Homebrew for M1 Mac.
 if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
   echo "setting up homebrew"
   eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # brew asdf init
+  if brew --prefix asdf > /dev/null; then
+    echo "setting up asdf"
+    source $(brew --prefix asdf)/libexec/asdf.sh
+  fi
 fi
 
 # rbenv init
