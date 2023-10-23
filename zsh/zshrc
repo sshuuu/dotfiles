@@ -14,6 +14,10 @@ export ZPLUG_HOME=$ZDOTDIR
 
 # for homebrew
 export PATH="/usr/local/sbin:$PATH"
+# for adb(Android Debug Bridge)
+export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
+# for android command
+export PATH="$PATH:$HOME/Library/Android/sdk/tools"
 
 #######################################
 # zplug設定
