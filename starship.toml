@@ -1,0 +1,34 @@
+add_newline = true
+
+[character]
+format = "👉 "
+
+[directory]
+truncation_length = 5
+truncate_to_repo = false
+
+[aws]
+style = "bold blue"
+symbol = "@ "
+
+[aws.region_aliases]
+ap-northease-1 = "jp"
+
+[git_branch]
+symbol = "🪴  "
+
+[git_status]
+conflicted = "🥐"
+ahead = "🚚"
+behind = "🍽"
+diverged = "🍛"
+untracked = "🌾"
+stashed = "🥡"
+modified = "🍚"
+staged = '🍙'
+renamed = "🍶"
+deleted = "👅"
+
+[nodejs]
+symbol = "⬢ "
+

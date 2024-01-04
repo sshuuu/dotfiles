@@ -7,26 +7,25 @@ if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
   echo "setting up homebrew"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
-  # brew asdf init
-  if brew --prefix asdf > /dev/null; then
+  # init asdf
+  if source $(brew --prefix asdf)/libexec/asdf.sh > /dev/null 2>&1; then
     echo "setting up asdf"
-    source $(brew --prefix asdf)/libexec/asdf.sh
   fi
 fi
 
-# rbenv init
+# init rbenv
 if type rbenv > /dev/null 2>&1; then
   echo "setting up rbenv"
   eval "$(rbenv init -)"
 fi
 
-# direnv init
+# init direnv
 if type direnv > /dev/null 2>&1; then
   echo "setting up direnv"
   eval "$(direnv hook zsh)"
 fi
 
-# goenv init
+# init goenv
 if type goenv > /dev/null 2>&1; then
   echo "setting up goenv"
   eval "$(goenv init -)"
