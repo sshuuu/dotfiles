@@ -22,7 +22,7 @@ export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 # for android command
 export PATH="$PATH:$HOME/Library/Android/sdk/tools"
 # for flutterfire（firebase for flutter）
-export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 #######################################
 # zplug設定

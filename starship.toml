@@ -20,7 +20,7 @@ symbol = "🪴  "
 [git_status]
 conflicted = "🥐"
 ahead = "🚚"
-behind = "🍽"
+behind = "🍽 "
 diverged = "🍛"
 untracked = "🌾"
 stashed = "🥡"
