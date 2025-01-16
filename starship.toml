@@ -1,7 +1,12 @@
 add_newline = true
 
+# Timeout for starship to scan files (in milliseconds).
+scan_timeout = 500
+
 [character]
-format = "👉 "
+# format = ">> "
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
 
 [directory]
 truncation_length = 5
@@ -15,20 +20,21 @@ symbol = "@ "
 ap-northease-1 = "jp"
 
 [git_branch]
-symbol = "🪴  "
+symbol = ""
 
 [git_status]
-conflicted = "🥐"
-ahead = "🚚"
-behind = "🍽 "
-diverged = "🍛"
-untracked = "🌾"
-stashed = "🥡"
-modified = "🍚"
-staged = '🍙'
-renamed = "🍶"
-deleted = "👅"
+conflicted = '≠'
+ahead      = '↑'
+behind     = '↓'
+diverged   = '⇕'
+untracked  = '?'
+# stashed    = '$'
+modified   = '!'
+staged     = '+'
+renamed    = '»'
+deleted    = '✘'
 
-[nodejs]
-symbol = "⬢ "
+# [nodejs]
+# symbol = "⬢ "
+
 
