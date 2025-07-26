@@ -19,7 +19,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # コマンド補完
 # コマンドやファイル名を入力中、Tabを押すことで入力候補を一覧表示する
-zinit ice wait'0'; zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-completions
 autoload -Uz compinit && compinit
 
 ## 補完で小文字でも大文字にマッチさせる

@@ -11,6 +11,11 @@ if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
   if source $(brew --prefix asdf)/libexec/asdf.sh > /dev/null 2>&1; then
     echo "setting up asdf"
   fi
+
+  # init fzf
+  if source <(fzf --zsh) > /dev/null 2>&1; then
+    echo "setting up fzf"
+  fi
 fi
 
 # init rbenv
