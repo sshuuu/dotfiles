@@ -42,8 +42,9 @@ if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    brew install peco
+    brew install fzf
     brew install ghq
+    brew install tree
 fi
 
 # Install asdf via Homebrew
