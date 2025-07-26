@@ -1,0 +1,34 @@
+# バックアップファイル（例：vim/emacs）
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old
+
+# macOS特有のファイル
+.DS_Store
+
+# ssh や認証系の重要ファイルは除外（必要に応じて）
+.ssh/
+.gnupg/
+.netrc
+.aws/credentials
+
+# ローカルマシン固有の設定
+.local/
+.cache/
+.python-history
+npm-debug.log
+node_modules/
+venv/
+__pycache__/
+
+# Zsh / Bash のセッション履歴など
+.zsh_history
+.bash_history
+
+# VSCode や IDE の設定
+.vscode/
+.idea/
+

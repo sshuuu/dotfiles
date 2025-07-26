@@ -8,7 +8,7 @@ git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_USER_EMAIL
 
 ##################################
-# alias設定
+# alias 設定
 ##################################
 git config --global alias.st status
 git config --global alias.co checkout
@@ -21,7 +21,13 @@ git config --global alias.sq "rebase -i"
 git config --global alias.fe "fetch -p"
 
 ##################################
-# git configの出力
+# git config の出力
 ##################################
 echo "\n----------- show global git config -----------"
 git config --global -l
+
+##################################
+# ghq 設定
+##################################
+git confit --global ghq.root ~/workspace
+

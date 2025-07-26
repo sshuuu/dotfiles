@@ -9,11 +9,6 @@ fi
 
 # 使用エディタ設定
 export EDITOR=vi
-# for zplug
-export ZPLUG_HOME=$ZDOTDIR
-# change starship config file path
-# default is $HOME/.config/starship.toml
-export STARSHIP_CONFIG="$HOME/dotfiles/starship.toml"
 
 # for homebrew
 export PATH="/usr/local/sbin:$PATH"
@@ -24,58 +19,8 @@ export PATH="$PATH:$HOME/Library/Android/sdk/tools"
 # for flutterfire（firebase for flutter）
 export PATH="$PATH:$HOME/.pub-cache/bin"
 
-#######################################
-# zplug設定
-#######################################
-# zplugが無ければgitからclone
-if [[ ! -d $ZPLUG_HOME/.zplug ]];then
-  git clone https://github.com/zplug/zplug $ZPLUG_HOME/.zplug
-fi
-
-# zplugを使う
-source $ZPLUG_HOME/.zplug/init.zsh
-
-# 自分自身をプラグインとして管理
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
-
-# zplug "ユーザー名/リポジトリ名", タグ
-# zplug "sindresorhus/pure"
-zplug "zsh-users/zsh-completions"
-zplug "mafredri/zsh-async"
-zplug "peterhurford/git-aliases.zsh"
-zplug "zsh-users/zsh-autosuggestions", defer:2
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-
-# インストールしてないプラグインはインストール
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# コマンドをリンクして、PATH に追加し、プラグインは読み込む
-zplug load
-
-#######################################
-# pure設定
-#######################################
-# source $HOME/dotfiles/zsh/pure_prompt.sh
-
-#######################################
-# starship初期化
-#######################################
-if type starship > /dev/null 2>&1; then
-  eval "$(starship init zsh)"
-fi
-
-#######################################
-# alias設定
-#######################################
-alias ll='ls -alF'
-alias be='bundle exec'
-alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
+# 個別設定ファイルを読み込む
+for config_file in $HOME/dotfiles/zsh/zshrc.d/*.zsh; do
+  source "$config_file"
+done
 

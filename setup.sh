@@ -41,17 +41,14 @@ fi
 if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    brew install peco
+    brew install ghq
 fi
 
 # Install asdf via Homebrew
 if ! brew list | grep -q "asdf"; then
     echo "Installing asdf via Homebrew..."
     brew install asdf
-fi
-
-# Install starship via Homebrew
-if ! brew list | grep -q "starship"; then
-    echo "Installing starship via Homebrew..."
-    brew install starship
 fi
 
