@@ -64,7 +64,7 @@ function fzf-github-issues-widget() {
   fi
 }
 zle -N fzf-github-issues-widget
-bindkey '^[^I' fzf-github-issues-widget
+bindkey '^O' fzf-github-issues-widget
 
 #######################################
 # List GitHub Pull Requests
