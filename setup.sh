@@ -42,9 +42,10 @@ if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    brew install fzf
-    brew install ghq
-    brew install tree
+    brew install fzf  # ファイルのリスト・フィルター用
+    brew install tree # ファイルをtree状に表示
+    brew install gh   # github操作用
+    brew install ghq  # githubリポジトリ管理用
 fi
 
 # Install asdf via Homebrew

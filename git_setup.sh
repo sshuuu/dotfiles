@@ -8,6 +8,12 @@ git config --global user.name $GIT_USER_NAME
 git config --global user.email $GIT_USER_EMAIL
 
 ##################################
+# ghコマンド 設定
+##################################
+gh auth login
+gh auth status
+
+##################################
 # alias 設定
 ##################################
 git config --global alias.st status
