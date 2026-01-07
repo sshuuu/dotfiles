@@ -27,3 +27,12 @@ asdf の設定については[こちら](https://zenn.dev/cacbahbj/articles/1c7f
 ## zsh についての資料
 
 - [zsh の設定ファイルの読み込み順序と使い方 Tips まとめ](https://qiita.com/muran001/items/7b104d33f5ea3f75353f)
+
+## カスタムプロンプト設定
+
+  プロンプトを設定し直したい場合は、下記コマンドを実行してウィザードを進めてください。
+
+  ```zsh
+  p10k configure
+  ```
+

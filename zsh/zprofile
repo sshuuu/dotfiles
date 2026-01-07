@@ -4,35 +4,35 @@
 
 # Set PATH, MANPATH, etc., Homebrew for M1 Mac.
 if type "/opt/homebrew/bin/brew" > /dev/null 2>&1; then
-  echo "setting up homebrew"
+  # echo "setting up homebrew"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 
   # init asdf
   if source $(brew --prefix asdf)/libexec/asdf.sh > /dev/null 2>&1; then
-    echo "setting up asdf"
+    # echo "setting up asdf"
   fi
 
   # init fzf
   if source <(fzf --zsh) > /dev/null 2>&1; then
-    echo "setting up fzf"
+    # echo "setting up fzf"
   fi
 fi
 
 # init rbenv
 if type rbenv > /dev/null 2>&1; then
-  echo "setting up rbenv"
+  # echo "setting up rbenv"
   eval "$(rbenv init -)"
 fi
 
 # init direnv
 if type direnv > /dev/null 2>&1; then
-  echo "setting up direnv"
+  # echo "setting up direnv"
   eval "$(direnv hook zsh)"
 fi
 
 # init goenv
 if type goenv > /dev/null 2>&1; then
-  echo "setting up goenv"
+  # echo "setting up goenv"
   eval "$(goenv init -)"
 fi
 
