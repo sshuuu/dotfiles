@@ -37,14 +37,16 @@ mkcd () {
 }
 
 # カスタムリポジトリ作成関数
+# 使用方法: createrepo <リポジトリ名> [--private|--public]
+# 例: createrepo my-project --private
 createrepo() {
   if [[ -z "$1" ]]; then
-    echo "使用方法: createrepo-init <リポジトリ名> [--private|--public]"
+    echo "使用方法: createrepo <リポジトリ名> [--private|--public]"
     return 1
   fi
   
   local repo_name="$1"
-  local visibility="${2:---public}"  # デフォルトはpublic
+  local visibility="${2:---private}"  # デフォルトはprivate
   
   # ローカルリポジトリ初期化
   git init
