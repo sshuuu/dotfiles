@@ -13,6 +13,8 @@ bindkey -e
 # 使用エディタ設定
 export EDITOR=vi
 
+# for clickhousectl etc..
+export PATH="$HOME/.local/bin:$PATH"
 # for homebrew
 export PATH="/usr/local/sbin:$PATH"
 # for adb(Android Debug Bridge)
@@ -26,4 +28,5 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 for config_file in $HOME/dotfiles/zsh/zshrc.d/*.zsh; do
   source "$config_file"
 done
+
 
