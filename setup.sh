@@ -35,6 +35,26 @@ if [ ! -e $HOME/.vim/autoload/plug.vim ]; then
 fi
 
 ############################################
+# Claude Code 設定 シンボリックリンク作成
+############################################
+mkdir -p $HOME/.claude/commands
+
+# 既存ファイル (シンボリックリンクではなく実体) があれば誤上書きを防ぐ
+link_claude_file() {
+    local src="$1"
+    local dst="$2"
+    if [ -L "$dst" ] || [ ! -e "$dst" ]; then
+        ln -sf "$src" "$dst"
+    else
+        echo "Warning: $dst exists as a regular file. Skipping symlink. Move or merge it manually."
+    fi
+}
+
+link_claude_file $HOME/dotfiles/claude/CLAUDE.md              $HOME/.claude/CLAUDE.md
+link_claude_file $HOME/dotfiles/claude/settings.json          $HOME/.claude/settings.json
+link_claude_file $HOME/dotfiles/claude/commands/git-commit.md $HOME/.claude/commands/git-commit.md
+
+############################################
 # ライブラリインストール
 ############################################
 # Homebrew 未導入ならインストール
