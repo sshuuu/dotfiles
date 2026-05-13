@@ -35,5 +35,5 @@ git config --global -l
 ##################################
 # ghq 設定
 ##################################
-git confit --global ghq.root ~/workspace
+git config --global ghq.root ~/workspace
 
