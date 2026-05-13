@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Bash(*)",
+      "mcp__Claude_Preview__*",
+      "mcp__e90fd330-92b9-4109-b1be-5ea60040579e__*",
+      "WebSearch",
+      "WebFetch",
+      "NotebookEdit"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(cat *.env*)",
+      "Bash(cat .env*)",
+      "Bash(grep * .env*)",
+      "Bash(less *.env*)",
+      "Bash(head *.env*)",
+      "Bash(tail *.env*)"
+    ]
+  },
+  "enabledPlugins": {
+    "pr-review-toolkit@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  }
+}
