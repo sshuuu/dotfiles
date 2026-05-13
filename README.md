@@ -73,6 +73,7 @@ p10k configure
 ```
 ~/dotfiles/
 ├── README.md
+├── CLAUDE.md                         # Claude Code 用のリポジトリ内指示書
 ├── setup.sh                          # 初期セットアップスクリプト
 ├── git_setup.sh                      # git / gh / ghq の初期設定
 ├── .gitignore
@@ -85,6 +86,11 @@ p10k configure
 │       ├── aliases.zsh               # エイリアスと小規模関数
 │       ├── plugins.zsh               # zinit + zsh プラグイン群
 │       └── widgets.zsh               # fzf 連携の ZLE widget
+├── claude/                           # Claude Code 個人グローバル設定
+│   ├── CLAUDE.md                     # 個人の作業好み (~/.claude/CLAUDE.md にシンボリックリンク)
+│   ├── settings.json                 # パーミッション設定 (~/.claude/settings.json にシンボリックリンク)
+│   └── commands/
+│       └── git-commit.md             # /git-commit スラッシュコマンド定義
 └── iterm2/
     └── com.googlecode.iterm2.plist   # iTerm2 preferences のエクスポート
 ```
@@ -269,6 +275,42 @@ plutil -convert xml1 iterm2/com.googlecode.iterm2.plist
 
 ```zsh
 defaults export com.googlecode.iterm2 ~/dotfiles/iterm2/com.googlecode.iterm2.plist
+```
+
+## Claude Code 設定
+
+Claude Code (Anthropic 公式 CLI) のグローバル個人設定を dotfiles で管理する。`~/.claude/` 配下のファイルはセッション履歴・キャッシュ等の機微情報を多く含むため、**dotfiles に取り込むのは Claude エージェントの挙動を決める純粋な設定ファイルのみ**:
+
+| dotfiles 内のパス | symlink 先 | 役割 |
+|---|---|---|
+| `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | 個人の作業好み (言語、コードスタイル、ワークフロー) |
+| `claude/settings.json` | `~/.claude/settings.json` | パーミッション設定 (`.env` 読み取り禁止のルール等) |
+| `claude/commands/git-commit.md` | `~/.claude/commands/git-commit.md` | `/git-commit` スラッシュコマンド定義 |
+
+`setup.sh` の実行時、これら 3 ファイルが `~/.claude/` 配下にシンボリックリンクとして配置される。既に `~/.claude/CLAUDE.md` 等が **通常ファイルとして存在する場合は誤上書きせず警告**して skip する設計 (`link_claude_file` 関数)。新マシンで既に Claude Code を使い始めていた場合は、手動で内容をマージしてから setup.sh を再実行すること。
+
+### dotfiles に含めないもの
+
+`~/.claude/` 配下で以下は **絶対に dotfiles 化しない** (PUBLIC リポジトリで漏れたら危険、または機械固有で意味がない):
+
+- `projects/` (プロジェクトメモリ、会話履歴を含む)
+- `sessions/` / `history.jsonl` (セッションログ)
+- `session-env/` (環境変数スナップショット、秘密値を含む可能性)
+- `file-history/` / `shell-snapshots/` (作業中状態)
+- `mcp-needs-auth-cache.json` (どの MCP サーバを使っているか露呈)
+- `cache/` / `backups/` / `debug/` / `telemetry/` / `todos/` / `tasks/` / `statsig/` (内部状態)
+- `plugins/` (プラグイン本体・キャッシュ。プラグインのインストール状態を再現したい場合は別途検討)
+
+### 設定変更の取り込み
+
+`~/.claude/CLAUDE.md` 等は symlink になっているので、Claude Code 上でグローバル設定を編集すると、その変更は **`~/dotfiles/claude/` 配下のファイルに直接反映**される。あとは通常の git フローでコミット:
+
+```zsh
+cd ~/dotfiles
+git diff claude/
+git add claude/
+git commit -m "feat(claude): <変更内容>"
+git push
 ```
 
 ## 更新
