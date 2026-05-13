@@ -64,7 +64,7 @@ zsh -n <file>
 ## ブランチ
 
 - デフォルトブランチは `main` のみ (`master` は 2026-05-13 に削除済み)
-- 直接 `main` にコミットして push する個人運用 (PR は基本使わない)
+- 通常は `main` に直接コミット & push する個人運用。レビューが必要なときのみ feature branch を切って PR を作成する
 
 ## iTerm2 plist の取り扱い
 
