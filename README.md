@@ -26,8 +26,8 @@ source ~/dotfiles/setup.sh
 - `~/.zsh/.zprofile` と `~/.zsh/.zshrc` を作成し、それぞれ `~/dotfiles/zsh/{zprofile,zshrc}` を `source` する 1 行を書き込み
 - `~/.vimrc` → `~/dotfiles/vimrc` のシンボリックリンク作成
 - vim-plug を `~/.vim/autoload/plug.vim` に取得
-- Homebrew 未導入の場合: Homebrew をインストールし、続けて `fzf` / `tree` / `gh` / `ghq` をインストール
-- `asdf` が未導入の場合: Homebrew 経由でインストール
+- Homebrew 未導入の場合: Homebrew をインストール (インストール直後は同シェルで `brew` が使えるよう `shellenv` を eval)
+- 必要パッケージ (`fzf` / `tree` / `gh` / `ghq` / `asdf`) のうち未導入のものを Homebrew 経由でインストール (冪等。再実行しても既存パッケージは skip)
 
 ### 3. git 設定
 
