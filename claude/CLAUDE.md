@@ -35,6 +35,16 @@
 - `~/.zshenv` / `~/.zsh/.zprofile` / `~/.zsh/.zshrc` は `~/dotfiles/setup.sh` が生成する 1 行スタブの場合がある。直接編集せず `~/dotfiles/zsh/` 配下の対応ファイルを編集する
 - 個人マシン固有 (`~/.zsh/fit-aliases.zsh` 等) は dotfiles に含めない
 
+# クレデンシャル管理ルール
+
+サービスの API キー等は **1Password (op CLI) 経由で env 注入する** 設計。`.env` に平文で書かない。
+
+- **CLI 実行**: `~/.zsh/op-runners.zsh` の `op-<service>` 関数経由で実行 (例: `op-clickhouse clickhousectl ...`)
+- **クレデンシャル参照ファイル**: `~/.config/<service>/env.1password` に `op://...` 参照のみを記述 (秘密値は持たない)
+- **MCP サーバー**: `~/.claude.json` に user-level で登録。OAuth ベースが基本、API key 必須なら `headers` 内で `${VAR}` 展開 → 起動時に `op-<service>` 関数で env を流す
+- 新サービス追加手順は `~/.zsh/op-runners.zsh` 冒頭コメント参照
+- 既存設定: ClickHouse Cloud (CLI=API key、MCP=OAuth), Datadog (MCP=OAuth)
+
 # Git Preferences
 
 - コミットメッセージは Conventional Commits 形式（feat:, fix:, refactor: ...）
