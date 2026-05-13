@@ -37,20 +37,29 @@ fi
 ############################################
 # ライブラリインストール
 ############################################
-# Check if Homebrew is installed
+# Homebrew 未導入ならインストール
 if ! command -v brew &> /dev/null; then
     echo "Homebrew not found. Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    brew install fzf  # ファイルのリスト・フィルター用
-    brew install tree # ファイルをtree状に表示
-    brew install gh   # github操作用
-    brew install ghq  # githubリポジトリ管理用
+    # インストール直後は brew が現在シェルの PATH に無いので shellenv を流す
+    if [ -x /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    elif [ -x /usr/local/bin/brew ]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 fi
 
-# Install asdf via Homebrew
-if ! brew list | grep -q "asdf"; then
-    echo "Installing asdf via Homebrew..."
-    brew install asdf
-fi
+# 必要な brew パッケージを冪等にインストール
+# fzf:  ファイルのリスト・フィルター用
+# tree: ファイルをtree状に表示
+# gh:   github操作用
+# ghq:  githubリポジトリ管理用
+# asdf: 複数言語のバージョン管理
+for pkg in fzf tree gh ghq asdf; do
+    if ! brew list "${pkg}" --formula &> /dev/null; then
+        echo "Installing ${pkg}..."
+        brew install "${pkg}"
+    fi
+done
 
